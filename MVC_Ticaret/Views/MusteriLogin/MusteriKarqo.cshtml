@@ -1,0 +1,35 @@
+﻿@using MVC_Ticaret.Models.Sinifler
+@model List<Karqo>
+@{
+    ViewBag.Title = "MusteriKarqo";
+    Layout = "~/Views/Shared/_MusPanelView.cshtml";
+}
+
+<br />
+<h2>Karqo</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Mehsul</th>
+        <th>Karqo Seriya</th>
+        <th>Teslimat eden</th>
+        <th>Teslimat alan</th>
+        <th>Tarix</th>
+        <th>Detallar</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+
+            <td>@x.Aciqlama</td>
+            <td>@x.KarqoSeriya</td>
+            <td>@x.KarqoIsciler.Ad @x.KarqoIsciler.Soyad</td>
+            <td>@x.Musteriler.MusteriAd @x.Musteriler.MusteriSoyad</td>
+            <td>@x.Tarix</td>
+            <td><a href="~/MusteriLogin/MusteriKarqoDetallar/@x.KarqoSeriya" class="btn btn-warning">Detallar</a></td>
+
+        </tr>
+    }
+
+
+</table>

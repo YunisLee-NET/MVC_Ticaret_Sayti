@@ -1,0 +1,35 @@
+﻿@using MVC_Ticaret.Models.Sinifler
+@model List<SatisHereket>
+@{
+    ViewBag.Title = "MusteriSifaris";
+    Layout = "~/Views/Shared/_MusPanelView.cshtml";
+}
+
+<h2>Sifarislerim</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Satış ID</th>
+        <th>Müştəri</th>
+        <th>Məhsul</th>
+        <th>İşçi</th>
+        <th>Qiymət</th>
+        <th>Sayı</th>
+        <th>Ümumi məbləğ</th>
+        <th>Tarix</th>
+    </tr>
+    @foreach (var s in Model)
+    {
+        <tr>
+            <td>@s.SatisID</td>
+            <td>@s.Musterilers.MusteriAd @s.Musterilers.MusteriSoyad</td>
+            <td>@s.Mehsullars.MehsulAd</td>
+            <td>@s.Iscilers.IsciAd @s.Iscilers.IsciSoyad</td>
+            <td>@s.Qiymet</td>
+            <td>@s.Eded</td>
+            <td>@s.UmumiXerc</td>
+            <td>@s.Tarix</td>
+        </tr>
+    }
+</table>
+

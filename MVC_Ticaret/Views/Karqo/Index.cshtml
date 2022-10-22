@@ -1,0 +1,38 @@
+﻿@using MVC_Ticaret.Models.Sinifler
+@model List<Karqo>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Karqo</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Mehsul</th>
+        <th>Karqo Seriya</th>
+        <th>Teslimat eden</th>
+        <th>Teslimat alan</th>
+        <th>Tarix</th>
+        <th>Detallar</th>
+        <th>Duzelis</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+
+            <td>@x.Aciqlama</td>
+            <td>@x.KarqoSeriya</td>
+            <td>@x.KarqoIsciler.Ad @x.KarqoIsciler.Soyad</td>
+            <td>@x.Musteriler.MusteriAd @x.Musteriler.MusteriSoyad</td>
+            <td>@x.Tarix</td>
+            <td><a href="~/Karqo/KarqoDetallar/@x.KarqoSeriya" class="btn" style="background-color: #571aa5">Detallar</a></td>
+            <td><a href="~/Karqo/KarqoGetir/@x.KarqoSeriya" class="btn btn-warning">Duzelis</a></td>
+            
+        </tr>
+    }
+    </table>
+
+<br />
+<a href="~/Karqo/YeniKarqo/" class="btn" style="background-color: #d3c807">Yeni karqo</a>

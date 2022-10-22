@@ -1,0 +1,47 @@
+﻿@model MVC_Ticaret.Models.Sinifler.SatisHereket
+@{
+    /**/
+
+    ViewBag.Title = "SHGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Satis tenzimleme</h2>
+<br />
+
+@using (Html.BeginForm("SHGuncelle", "SatisHereket", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x => x.SatisID)
+        @Html.Label("Musteri")
+        @Html.DropDownListFor(m => m.MusteriID, (List<SelectListItem>)ViewBag.sms, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.Label("Mehsul")
+        @Html.DropDownListFor(m => m.MehsulID, (List<SelectListItem>)ViewBag.smh, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.Label("Isci")
+        @Html.DropDownListFor(m => m.IsciID, (List<SelectListItem>)ViewBag.si, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Eded)
+        @Html.TextBoxFor(x => x.Eded, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Qiymet)
+        @Html.TextBoxFor(x => x.Qiymet, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.UmumiXerc)
+        @Html.TextBoxFor(x => x.UmumiXerc, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Tarix)
+        @Html.TextBoxFor(x => x.Tarix, new { @class = "form-control" })
+    </div>
+    <div style="margin-top: 20px;">
+        <button class="btn" style="background-color: cadetblue">Tesdiq et</button>
+    </div>
+}

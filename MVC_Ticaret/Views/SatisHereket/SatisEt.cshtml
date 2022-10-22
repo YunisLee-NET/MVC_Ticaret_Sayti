@@ -1,0 +1,38 @@
+﻿@model MVC_Ticaret.Models.Sinifler.SatisHereket
+@{
+    ViewBag.Title = "SatisEt";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Satış əməliyyatları</h2>
+
+<form method="post" class="form-group">
+    <div>
+        <label>Müştəri</label>
+        @Html.DropDownListFor(x => x.MusteriID, (List<SelectListItem>)ViewBag.sms, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Məhsul</label>
+        @Html.DropDownListFor(x => x.MehsulID, (List<SelectListItem>)ViewBag.smh, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>İşçi</label>
+        @Html.DropDownListFor(x => x.IsciID, (List<SelectListItem>)ViewBag.si, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Qiyməti (AZN)</label>
+        <input type="text" name="Qiymet" class="form-control" />
+    </div>
+    <div>
+        <label>Sayı</label>
+        <input type="text" name="Eded" class="form-control" />
+    </div>
+    <div>
+        <label>Ümumi məbləğ (AZN)</label>
+        <input type="text" name="UmumiXerc" class="form-control" />
+    </div>
+    <div style="margin-top: 20px;">
+        <button class="btn btn-success">Əlavə et</button>
+    </div>
+</form>
+

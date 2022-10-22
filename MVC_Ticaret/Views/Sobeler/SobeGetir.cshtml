@@ -1,0 +1,29 @@
+﻿@model MVC_Ticaret.Models.Sinifler.Sobeler
+@{
+    /**/
+
+    ViewBag.Title = "SobeGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Sobe Getir</h2>
+
+@using (Html.BeginForm("SobeGuncelle", "Sobeler", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Sobenin adi</label>
+        @Html.TextBoxFor(x => x.SobeAd, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Veziyyet</label>
+        @Html.TextBoxFor(x => x.SobeVeziyyet, new { @class = "form-control" })
+    </div>
+
+
+    @Html.HiddenFor(x => x.SobeID)
+    <div style="margin-top: 20px;">
+        <button class="btn btn-success">Tesdiq et</button>
+    </div>
+}
+
+

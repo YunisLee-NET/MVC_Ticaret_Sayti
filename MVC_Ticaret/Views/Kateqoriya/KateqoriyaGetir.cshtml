@@ -1,0 +1,22 @@
+﻿@model MVC_Ticaret.Models.Sinifler.Kateqoriya
+@{
+    ViewBag.Title = "KateqoriyaGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Kateqoriya Getir</h2>
+<hr />
+
+@using (Html.BeginForm("KateqoriyaGuncelle", "Kateqoriya", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.KateqoriyaAd)
+        @Html.TextBoxFor(x => x.KateqoriyaAd, new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(x=>x.KateqoriyaID)
+    <div style="margin-top: 20px;">
+        <button class="btn btn-success">Tesdiq et</button>
+    </div>
+}
+

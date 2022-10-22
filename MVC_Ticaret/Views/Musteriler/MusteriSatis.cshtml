@@ -1,0 +1,45 @@
+﻿@using MVC_Ticaret.Models.Sinifler
+@model List<SatisHereket>
+@{
+    ViewBag.Title = "MusteriSatis";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Müştərinin satış səhifəsi</h2>
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Müştəri adı: @ViewBag.mus</li>
+</ol>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Satış ID</th>
+            <th>Məhsul</th>
+            <th>İşçi</th>
+            <th>Qiymət</th>
+            <th>Say</th>
+            <th>Ümumi</th>
+            <th>Tarix</th>
+            <th>Qeydiyyat</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var ss in Model)
+        {
+        <tr>
+            <td>@ss.SatisID</td>
+            <td>@ss.Mehsullars.MehsulAd</td>
+            <td>@ss.Iscilers.IsciAd @ss.Iscilers.IsciSoyad</td>
+            <td>@ss.Qiymet</td>
+            <td>@ss.Eded</td>
+            <td>@ss.UmumiXerc</td>
+            <td>@ss.Tarix</td>
+            <td><a href="#" class="btn btn-default" style="background-color: dodgerblue">Qeyd et</a></td>
+        </tr>
+        }
+    </tbody>
+
+</table>
+

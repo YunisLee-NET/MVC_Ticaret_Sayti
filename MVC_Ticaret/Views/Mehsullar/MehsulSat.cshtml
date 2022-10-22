@@ -1,0 +1,65 @@
+﻿@model MVC_Ticaret.Models.Sinifler.SatisHereket
+@{
+    ViewBag.Title = "MehsulSat";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Mehsulu satin</h2>
+@if (ViewBag.say == 0)
+{
+    <h4 style="color: red">Diqqet!! Mehsul bitdiyi ucun satis heyata kecire bilmezsiniz!</h4>
+}
+else
+{
+    <h4 style="color: #0043ce">Diqqet!! Siz @ViewBag.say eded mehsul sata bilersiniz!</h4>
+}
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.MehsulID)
+    <input type="text" name="MehsulID" value="@ViewBag.m2" class="form-control" readonly />
+    <br />
+    @Html.LabelFor(x => x.IsciID)
+    @Html.DropDownListFor(x => x.IsciID, (List<SelectListItem>)ViewBag.m1, new { @class = "form-control" })
+    <br />
+    <a href="~/Musteriler/Index/" class="btn btn-primary" target="_blank">Musteriler</a>
+    <br />
+    @Html.LabelFor(x => x.MusteriID)
+    @Html.TextBoxFor(x => x.MusteriID, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Qiymet)
+    <input type="text" name="Qiymet" value="@ViewBag.sq1" class="form-control" id="txtSQ" onkeyup="sum();" />
+    @*@Html.TextBoxFor(x => x.Qiymet, new { @class = "form-control" })*@
+    <br />
+    @Html.LabelFor(x => x.Eded)
+    <input type="number" name="Eded" class="form-control" max="20" min="0" id="txtEded" onkeyup="sum();" />
+    <br />
+    @Html.LabelFor(x => x.UmumiXerc)
+    <input type="text" name="UmumiXerc" value="0" class="form-control" id="txtUX" readonly />
+    <br />
+    <div>
+        @if (ViewBag.say == 0)
+        {
+            <button class="btn btn-success" style="display: none">Satis</button>
+        }
+        else
+        {
+            <button class="btn btn-success" style="display: block">Satis</button>
+        }
+    </div>
+
+
+
+</form>
+<br />
+<script>
+    function sum() {
+        var s1 = document.getElementById('txtSQ').value;
+        var s2 = document.getElementById('txtEded').value;
+        var n = parseInt(s1) * parseInt(s2);
+        if (!isNaN(n)) {
+            document.getElementById('txtUX').value = n;
+        }
+    }
+</script>
+

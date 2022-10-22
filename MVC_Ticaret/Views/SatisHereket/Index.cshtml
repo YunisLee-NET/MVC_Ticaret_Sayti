@@ -1,0 +1,44 @@
+﻿@using MVC_Ticaret.Models.Sinifler
+@model List<SatisHereket>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Satışlar</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Satış ID</th>
+        <th>Müştəri</th>
+        <th>Məhsul</th>
+        <th>İşçi</th>
+        <th>Qiymət</th>
+        <th>Sayı</th>
+        <th>Ümumi məbləğ</th>
+        <th>Tarix</th>
+        <th>Sil</th>
+        <th>Güncəllə</th>
+        <th>Detallar</th>
+    </tr>
+    @foreach (var s in Model)
+    {
+        <tr>
+            <td>@s.SatisID</td>
+            <td>@s.Musterilers.MusteriAd @s.Musterilers.MusteriSoyad</td>
+            <td>@s.Mehsullars.MehsulAd</td>
+            <td>@s.Iscilers.IsciAd @s.Iscilers.IsciSoyad</td>
+            <td>@s.Qiymet</td>
+            <td>@s.Eded</td>
+            <td>@s.UmumiXerc</td>
+            <td>@s.Tarix</td>
+            <td><a href="~/SatisHereket/SHSil/@s.SatisID" class="btn btn-danger">Sil</a></td>
+            <td><a href="~/SatisHereket/SHGetir/@s.SatisID" class="btn btn-info">Güncəllə</a></td>
+            <td><a href="~/SatisHereket/SHDetal/@s.SatisID" class="btn btn-dark">Detallar</a></td>
+        </tr>
+    }
+</table>
+
+<a href="~/SatisHereket/SatisEt/" class="btn" style="background-color: darkgoldenrod; color: black;">Yeni satış</a>
+

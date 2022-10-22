@@ -1,0 +1,30 @@
+﻿@model MVC_Ticaret.Models.Sinifler.Musteriler
+@{
+    ViewBag.Title = "YeniMusteri";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yeni müştəri</h2>
+
+<form method="post" class="form-group">
+    <div>
+        <label>Müştərinin adı</label>
+        <input type="text" name="MusteriAd" class="form-control" />
+    </div>
+    <div>
+        <label>Soyadı</label>
+        <input type="text" name="MusteriSoyad" class="form-control" />
+    </div>
+    <div>
+        <label>Şəhəri</label>
+        <input type="text" name="MusteriSeher" class="form-control" />
+    </div>
+    <div>
+        <label>Mail ünvanı</label>
+        <input type="text" name="MusteriMail" class="form-control" />
+    </div>
+    <div style="margin-top: 20px;">
+        <button class="btn btn-success">Əlavə edin</button>
+    </div>
+</form>
+

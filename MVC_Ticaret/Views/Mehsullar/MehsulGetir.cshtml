@@ -1,0 +1,47 @@
+﻿@model MVC_Ticaret.Models.Sinifler.Mehsullar
+@{
+    ViewBag.Title = "MehsulGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Mehsul Getir</h2>
+
+@using (Html.BeginForm("MehsulYenile", "Mehsullar", FormMethod.Post))
+{
+    <div>
+        <label>Mehsul adı</label>
+        @Html.TextBoxFor(m => m.MehsulAd, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Markasi</label>
+        @Html.TextBoxFor(m => m.Marka, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Stok</label>
+        @Html.TextBoxFor(m => m.Stok, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Alis qiymeti</label>
+        @Html.TextBoxFor(m => m.AlisQiymet, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Satis qiymeti</label>
+        @Html.TextBoxFor(m => m.SatisQiymet, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Veziyyet</label>
+        @Html.TextBoxFor(m => m.Veziyyet, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Foto</label>
+        @Html.TextBoxFor(m => m.MehsulFoto, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Kateqoriya</label>
+        @Html.DropDownListFor(m => m.KateqoriyaID, (List<SelectListItem>)ViewBag.vbktqr, new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(m => m.MehsulID)
+    <div style="margin-top: 20px;">
+        <button class="btn btn-success">Tesdiq et</button>
+    </div>
+}

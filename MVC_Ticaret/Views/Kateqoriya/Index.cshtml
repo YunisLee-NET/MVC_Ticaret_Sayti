@@ -1,0 +1,30 @@
+﻿@using MVC_Ticaret.Models.Sinifler
+@model List<Kateqoriya>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Kateqoriyalar</h2>
+<hr />
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Kateqoriya adı</th>
+        <th>Sil</th>
+        <th>Güncəllə</th>
+    </tr>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>@k.KateqoriyaID</td>
+            <td>@k.KateqoriyaAd</td>
+            <td><a href="~/Kateqoriya/KateqoriyaSil/@k.KateqoriyaID" class="btn btn-warning">Sil</a></td>
+            <td><a href="~/Kateqoriya/KateqoriyaGetir/@k.KateqoriyaID" class="btn btn-success">Guncelle</a></td>
+        </tr>
+    }
+</table>
+
+<a href="~/Kateqoriya/YeniKateqoriya/" class="btn btn-primary">Yeni kateqoriya</a>

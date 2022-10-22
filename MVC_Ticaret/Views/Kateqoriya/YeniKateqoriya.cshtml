@@ -1,0 +1,18 @@
+﻿@model MVC_Ticaret.Models.Sinifler.Kateqoriya
+@{
+    ViewBag.Title = "YeniKateqoriya";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yeni Kateqoriya</h2>
+
+<form method="post" class="form-group">
+    <div>
+        <label>Kateqoriya adı</label>
+        <input type="text" name="KateqoriyaAd" class="form-control" />
+    </div>
+    @Html.HiddenFor(x=>x.KateqoriyaID)
+    <div style="margin-top: 20px;">
+        <button class="btn btn-info">Elave et</button>
+    </div>
+</form>

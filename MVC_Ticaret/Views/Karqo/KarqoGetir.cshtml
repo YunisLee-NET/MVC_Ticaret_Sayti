@@ -1,0 +1,34 @@
+﻿@model MVC_Ticaret.Models.Sinifler.KarqoDetallar
+@{
+    ViewBag.Title = "KarqoGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Karqo detallari</h2>
+<br />
+<div>
+    <label>Kargo seriyasi: @ViewBag.kser</label>
+</div>
+<br />
+
+@using (Html.BeginForm("KarqoGuncelle", "Karqo", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x => x.DetalID)
+        <label>Karqo seriyasi</label>
+        @Html.TextBoxFor(x => x.KarqoSeriya, new { @class = "form-control" })
+    </div>
+    <div style="margin-top: 20px;">
+        <label>Veziyyet</label>
+        @Html.TextBoxFor(x => x.Hereket, new { @class = "form-control" })
+    </div>
+    <div style="margin-top: 20px;">
+        <label>Tarix</label>
+        @Html.TextBoxFor(x => x.Tarix, new { @class = "form-control" })
+    </div>
+    <div style="margin-top: 20px;">
+        <button class="btn btn-danger">Tesdiq et</button>
+    </div>
+}
+
+

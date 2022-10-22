@@ -1,0 +1,35 @@
+﻿@using MVC_Ticaret.Models.Sinifler
+@model List<Musteriler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Müştərilər</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Müştəri ID</th>
+        <th>Adı və soyadı</th>
+        <th>Şəhər</th>
+        <th>Mail</th>
+        <th>Sil</th>
+        <th>Güncəllə</th>
+        <th>Detallar</th>
+    </tr>
+    @foreach(var m in Model)
+    {
+        <tr>
+            <td>@m.MusteriID</td>
+            <td>@m.MusteriAd @m.MusteriSoyad</td>
+            <td>@m.MusteriSeher</td>
+            <td>@m.MusteriMail</td>
+            <td><a href="~/Musteriler/MusteriSil/@m.MusteriID" class="btn btn-danger">Sil</a></td>
+            <td><a href="~/Musteriler/MusteriGetir/@m.MusteriID" class="btn btn-info">Güncəllə</a></td>
+            <td><a href="~/Musteriler/MusteriSatis/@m.MusteriID" class="btn btn-dark">Detallar</a></td>
+        </tr>
+    }
+</table>
+
+<a href="~/Musteriler/YeniMusteri/" class="btn" style="background-color: chocolate; color: white;">Yeni müştəri əlavə edin</a>

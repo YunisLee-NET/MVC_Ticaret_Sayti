@@ -1,0 +1,42 @@
+﻿@model MVC_Ticaret.Models.Sinifler.Karqo
+@{
+    ViewBag.Title = "YeniKarqo";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yeni karqo</h2>
+
+<form class="form-group" method="post">
+    <div>
+        @Html.HiddenFor(x => x.KarqoID)
+        <label>Mehsul aciqlamasi</label>
+        @Html.TextBoxFor(x => x.Aciqlama, new { @class = "form-control" })
+    </div>
+    <br />
+    <div>
+        <label>Karqo seriya No-su</label>
+        <input type="text" name="KarqoSeriya" value="@ViewBag.kkod" readonly class="form-control" />
+    </div>
+    <br />
+    <a href="#" class="btn btn-success" target="_blank">Karqo iscileri</a>
+    <div>
+        <label>Teslim eden</label>
+        @Html.TextBoxFor(x => x.TeslimatciID, new { @class = "form-control" })
+    </div>
+    <br />
+    <a href="~/Musteriler/Index/" class="btn btn-primary" target="_blank">Musteriler</a>
+    <div>
+        <label>Teslim alan</label>
+        @Html.TextBoxFor(x => x.MusteriID, new { @class = "form-control" })
+    </div>
+    <br />
+    <div>
+        <label>Tarix</label>
+        <input class="form-control" type="date" name="Tarix" />
+    </div>
+    <div style="margin-top: 20px;">
+        <button class="btn" style="background-color: #b1ba3e; color: black;">Elave et</button>
+    </div>
+
+</form>
+

@@ -1,0 +1,36 @@
+﻿@using MVC_Ticaret.Models.Sinifler
+@model List<Isciler>
+@{
+    ViewBag.Title = "SobeDetal";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Şöbələr haqqında</h2>
+
+<div class="container-fluid">
+    <div style="background-color: #383c44; color: white; border-radius: 7px;">
+        <div style="padding: 10px; font-size: 18px;">
+            <div>Şöbə: @ViewBag.sbad</div>
+            <div>İşçi sayı: @ViewBag.say</div>
+        </div>
+    </div>
+    <table class="table table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Foto</th>
+            <th>Satış</th>
+        </tr>
+        @foreach (var si in Model)
+        {
+            <tr>
+                <th scope="row">@si.IsciID</th>
+                <td>@si.IsciAd</td>
+                <td>@si.IsciSoyad</td>
+                <td><img style="height: 100px; width: 100px;" src="@si.IsciFoto" /></td>
+                <td><a href="~/Sobeler/SobeSatis/@si.IsciID" class="btn btn-info">Satışlar</a></td>
+            </tr>
+        }
+    </table>
+</div>

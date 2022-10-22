@@ -1,0 +1,64 @@
+﻿@using MVC_Ticaret.Models.Sinifler
+@model List<Mehsullar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Məhsullar</h2>
+<hr />
+<div>
+
+</div>
+<table class="table table-bordered">
+    <tr style="background-color: black; color: white;">
+        <th>ID</th>
+        <th>Adi</th>
+        <th>Markasi</th>
+        <th>Stok</th>
+        <th>Alis qiymeti (AZN)</th>
+        <th>Satis qiymeti (AZN)</th>
+        <th>Fotosu</th>
+        <th>Kateqoriya</th>
+        <th>Sil</th>
+        <th>Guncelle</th>
+        <th>Satis</th>
+    </tr>
+    @foreach (var m in Model)
+    {
+        <tr>
+            <td>@m.MehsulID</td>
+            <td>@m.MehsulAd</td>
+            <td>@m.Marka</td>
+            @if (m.Stok == 0)
+            {
+                <td><label>Mehsul bitib</label></td>
+            }
+            else
+            {
+                <td>@m.Stok</td>
+            }
+
+            <td>@m.AlisQiymet</td>
+            <td>@m.SatisQiymet</td>
+            <td><img style="height:100px; width:100px;" src="@m.MehsulFoto" /></td>
+            <td>@m.Kateqoriya.KateqoriyaAd</td>
+            <td><a href="~/Mehsullar/MehsulSil/@m.MehsulID" class="btn btn-warning">Sil</a></td>
+            <td><a href="~/Mehsullar/MehsulGetir/@m.MehsulID" class="btn btn-success">Guncelle</a></td>
+
+
+            @if (m.Stok == 0)
+            {
+                <td><a href="~/Mehsullar/MehsulSat/@m.MehsulID" class="btn" style="background-color: #b3d819; display: none">Sat</a></td>
+            }
+            else
+            {
+                <td><a href="~/Mehsullar/MehsulSat/@m.MehsulID" class="btn" style="background-color: #b3d819; display: block">Sat</a></td>
+            }
+
+        </tr>
+    }
+</table>
+
+<a href="~/Mehsullar/YeniMehsul/" class="btn btn-primary">Yeni mehsul elave et</a>

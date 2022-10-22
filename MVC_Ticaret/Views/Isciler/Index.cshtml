@@ -1,0 +1,32 @@
+﻿@using MVC_Ticaret.Models.Sinifler
+@model List<Isciler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>İşçilər</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>İşçi adı</th>
+        <th>Soyadı</th>
+        <th>Şöbəsi</th>
+        <th>Fotosu</th>
+        <th>Güncəllə</th>
+        <th>Detallar</th>
+    </tr>
+    @foreach (var i in Model)
+    {
+        <tr>
+            <td>@i.IsciID</td>
+            <td>@i.IsciAd</td>
+            <td>@i.IsciSoyad</td>
+            <td>@i.Sobeler.SobeAd</td>
+            <td>@i.IsciFoto</td>
+            <td><a href="#" class="btn btn-warning">Güncəllə</a></td>
+            <td><a href="~/Sobeler/SobeSatis/@i.IsciID" class="btn btn-dark">Detallar</a></td>
+        </tr>
+    }
+</table>

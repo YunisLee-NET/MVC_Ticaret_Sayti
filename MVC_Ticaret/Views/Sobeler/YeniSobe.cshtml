@@ -1,0 +1,18 @@
+﻿@model MVC_Ticaret.Models.Sinifler.Sobeler
+@{
+    ViewBag.Title = "YeniSobe";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yeni Sobe</h2>
+
+<form method="post" class="form-group">
+    <div>
+        @Html.HiddenFor(x=>x.SobeID)
+        <label>Şöbə adı</label>
+        @Html.TextBoxFor(x=>x.SobeAd, new { @class="form-control"})
+    </div>
+    <div style="margin-top: 20px;">
+        <button class="btn btn-dark">Elave et</button>
+    </div>
+</form>

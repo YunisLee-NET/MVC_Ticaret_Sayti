@@ -1,0 +1,31 @@
+﻿@model MVC_Ticaret.Models.Sinifler.Musteriler
+@{
+    ViewBag.Title = "MusteriGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>MusteriGetir</h2>
+<br />
+@using (Html.BeginForm("MusteriGuncelle", "Musteriler", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x=>x.MusteriID)
+        @Html.LabelFor(x => x.MusteriAd)
+        @Html.TextBoxFor(x => x.MusteriAd, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.MusteriSoyad)
+        @Html.TextBoxFor(x => x.MusteriSoyad, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.MusteriSeher)
+        @Html.TextBoxFor(x => x.MusteriSeher, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.MusteriMail)
+        @Html.TextBoxFor(x => x.MusteriMail, new { @class = "form-control" })
+    </div>
+    <div style="margin-top: 20px;">
+        <button class="btn" style="background-color: cadetblue">Tesdiq et</button>
+    </div>
+}
